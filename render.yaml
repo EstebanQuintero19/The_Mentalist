@@ -1,10 +1,9 @@
 services:
   - type: web
     name: the-mentalist
-    runtime: node
-    plan: free
+    runtime: static
     buildCommand: npm ci && npm run build
-    startCommand: npm start
+    staticPublishPath: out
     envVars:
       - key: NODE_VERSION
         value: "22"
