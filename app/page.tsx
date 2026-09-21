@@ -211,6 +211,7 @@ export default function Page() {
         </div>
       </section>
 
+      <p className="colophon">Hecho por un fan. Imágenes © Warner Bros. Television / CBS.</p>
     </>
   );
 }

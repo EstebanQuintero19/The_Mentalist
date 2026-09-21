@@ -366,3 +366,5 @@ figcaption { font-size: var(--s1); color: var(--text-soft); margin-top: 0.7rem; 
   .mark.drawn.erase:not(.ghost) img { animation: none; opacity: 0.25; }
   .exit-title { animation: none; opacity: 1; }
 }
+
+.colophon { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 2rem; text-align: right; font-size: 0.7rem; color: var(--text-soft); opacity: 0.45; }

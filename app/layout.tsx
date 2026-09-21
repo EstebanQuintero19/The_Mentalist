@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Cierra los ojos — The Mentalist",
   description:
     "Patrick Jane, la unidad del CBI, Red John y los momentos que lo cambiaron todo.",
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
