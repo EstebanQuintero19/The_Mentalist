@@ -46,7 +46,7 @@ a { color: inherit; }
 /* ---------- Pantalla de entrada ---------- */
 .splash {
   position: fixed; inset: 0; z-index: 50;
-  display: grid; place-content: center; justify-items: center; gap: 0.5rem;
+  display: grid; place-content: safe center; overflow-y: auto; justify-items: center; gap: 0.5rem;
   padding: 2rem;
   background: var(--room);
   text-align: center;
@@ -368,3 +368,16 @@ figcaption { font-size: var(--s1); color: var(--text-soft); margin-top: 0.7rem; 
 }
 
 .colophon { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem 2rem; text-align: right; font-size: 0.7rem; color: var(--text-soft); opacity: 0.45; }
+
+/* ---------- Música ---------- */
+.music {
+  position: fixed; left: 1.2rem; bottom: 1.2rem; z-index: 60;
+  display: flex; gap: 0.5rem; align-items: center;
+  font: 400 var(--s1) / 1 var(--text-face); letter-spacing: 0.04em;
+  color: var(--text-soft); background: rgba(12, 10, 9, 0.75);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.45rem 0.9rem; cursor: pointer;
+}
+.music i { width: 7px; height: 7px; border-radius: 50%; background: var(--text-soft); }
+.music.on { color: var(--text); }
+.music.on i { background: var(--blood-bright); box-shadow: 0 0 6px var(--blood-bright); }
+@media (max-width: 640px) { .music { left: auto; right: 0.8rem; bottom: 0.8rem; font-size: 0.75rem; padding: 0.35rem 0.7rem; } }

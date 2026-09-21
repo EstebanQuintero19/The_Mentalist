@@ -3,6 +3,7 @@ import Link from "next/link";
 import ColdReading from "./components/ColdReading";
 import RedJohnMark from "./components/RedJohnMark";
 import Splash from "./components/Splash";
+import Music from "./components/Music";
 import Palace from "./components/Palace";
 import { around, moments, seven, unit, type Person } from "./data";
 import { seasons } from "./seasons";
@@ -30,6 +31,7 @@ export default function Page() {
   return (
     <>
       <Splash />
+      <Music src="/Wicked Game - Chris Isaak.mp3" title="Wicked Game" />
       <header className="wall">
         <RedJohnMark ghost className="wall-mark" />
         <div className="wall-text">
