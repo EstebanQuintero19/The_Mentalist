@@ -1,0 +1,12 @@
+
+> the-mentalist@0.1.0 dev
+> next dev -p 3210
+
+▲ Next.js 16.3.5 (Turbopack)
+- Local:         http://localhost:3210
+- Network:       http://192.168.56.1:3210
+✓ Ready in 1154ms
+✓ Running next.config.ts took 69ms
+
+ GET / 200 in 730ms (next.js: 382ms, application-code: 349ms)
+[?25h
