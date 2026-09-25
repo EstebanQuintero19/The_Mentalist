@@ -5,6 +5,7 @@ import RedJohnMark from "./components/RedJohnMark";
 import Splash from "./components/Splash";
 import Music from "./components/Music";
 import Palace from "./components/Palace";
+import { Flashlight, Focus, Seven, Tilt, Timeline, Toc, Watching, Word } from "./components/Motion";
 import { around, moments, seven, unit, type Person } from "./data";
 import { seasons } from "./seasons";
 
@@ -32,12 +33,16 @@ export default function Page() {
     <>
       <Splash />
       <Music src="/Wicked Game - Chris Isaak.mp3" title="Wicked Game" />
-      <header className="wall">
-        <RedJohnMark ghost className="wall-mark" />
+      <Flashlight>
+        <Watching className="wall-mark">
+          <RedJohnMark ghost />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/img/redjohn.webp" alt="" className="lit" aria-hidden />
+        </Watching>
         <div className="wall-text">
-          <h1>
-            Cierra <em>los ojos.</em>
-          </h1>
+          <Focus>
+            <Word>Cierra</Word> <Word italic>los</Word> <Word italic>ojos.</Word>
+          </Focus>
           <ColdReading />
           <p className="where">
             Sacramento, California. Oficina de Investigación Criminal. Un consultor sin placa, un sofá de
@@ -47,16 +52,9 @@ export default function Page() {
         <a href="#palacio" className="cue" aria-label="Bajar">
           <span>Entra</span>
         </a>
-      </header>
+      </Flashlight>
 
-      <nav className="toc" aria-label="Secciones">
-        <a href="#metodo">El método</a>
-        <a href="#unidad">La unidad</a>
-        <a href="#alrededor">Alrededor</a>
-        <a href="#redjohn">Red John</a>
-        <a href="#momentos">Momentos</a>
-        <a href="#temporadas">Temporadas</a>
-      </nav>
+      <Toc items={[["metodo", "El método"], ["unidad", "La unidad"], ["alrededor", "Alrededor"], ["redjohn", "Red John"], ["momentos", "Momentos"], ["temporadas", "Temporadas"]]} />
 
       <Palace />
 
@@ -146,14 +144,7 @@ export default function Page() {
             Lorelei le dijo a Jane que ya le había dado la mano a Red John. Jane recorrió su palacio de
             la memoria y salió con siete.
           </p>
-          <ol className="seven">
-            {seven.map((s) => (
-              <li key={s.name} className={s.him ? "him" : undefined}>
-                <span className="name">{s.name}</span>
-                <span className="fate">{s.fate}</span>
-              </li>
-            ))}
-          </ol>
+          <Seven items={seven} />
 
           <h3>El final</h3>
           <p>
@@ -170,7 +161,7 @@ export default function Page() {
         </aside>
         <div className="body">
           <h2>Momentos que lo cambiaron todo</h2>
-          <ol className="timeline">
+          <Timeline>
             {moments.map((m) => (
               <li key={m.code} className={m.red ? "red" : undefined}>
                 <span className="code">{m.code}</span>
@@ -180,7 +171,7 @@ export default function Page() {
                 </div>
               </li>
             ))}
-          </ol>
+          </Timeline>
         </div>
       </section>
 
@@ -195,7 +186,7 @@ export default function Page() {
           <h2>Por temporadas</h2>
           <ul className="posters">
             {seasons.map((s) => (
-              <li key={s.n}>
+              <Tilt key={s.n}>
                 <Link href={`/temporada/${s.n}`}>
                   <Image src={s.poster} alt="" width={300} height={450} />
                   <span
@@ -207,7 +198,7 @@ export default function Page() {
                   <span className="t">{s.title}</span>
                   <span className="y">{s.years}</span>
                 </Link>
-              </li>
+              </Tilt>
             ))}
           </ul>
         </div>

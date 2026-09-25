@@ -30,6 +30,7 @@ export default function Splash() {
     try {
       sessionStorage.setItem("entered", "1");
     } catch {}
+    dispatchEvent(new Event("entered"));
     setLeaving(true);
     setTimeout(() => setShow(false), 900);
   }

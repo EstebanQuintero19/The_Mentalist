@@ -194,7 +194,8 @@ figcaption { font-size: var(--s1); color: var(--text-soft); margin-top: 0.7rem; 
   padding: 0.75rem 0; border-bottom: 1px solid var(--rule);
 }
 .seven li::before { content: counter(n); color: var(--text-soft); font-family: var(--display); }
-.seven .name { font-family: var(--display); font-size: var(--s3); text-decoration: line-through; text-decoration-color: var(--blood); text-decoration-thickness: 1px; color: var(--text-soft); }
+.seven .name { position: relative; justify-self: start; font-family: var(--display); font-size: var(--s3); color: var(--text-soft); }
+.seven .name i { position: absolute; left: -4px; right: -4px; top: 55%; height: 1.5px; background: var(--blood-bright); transform-origin: left; box-shadow: 0 0 6px rgba(184,40,43,.7); }
 .seven .fate { color: var(--text-soft); font-size: var(--s1); text-align: right; }
 .seven .him .name { text-decoration: none; color: var(--blood-bright); font-size: var(--s4); }
 .seven .him .fate { color: var(--text); }
@@ -278,7 +279,19 @@ figcaption { font-size: var(--s1); color: var(--text-soft); margin-top: 0.7rem; 
 }
 .toc a { position: relative; }
 .toc a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--blood-bright); transition: right 0.3s; }
-.toc a:hover::after { right: 0; }
+.toc a:hover::after, .toc a.on::after { right: 0; }
+.toc a.on { color: var(--text); }
+[id] { scroll-margin-top: 3.5rem; }
+h1 .word { display: inline-block; }
+.wall-mark .mark { width: 100%; }
+
+/* Cronología: la línea se tiñe al bajar */
+.timeline { position: relative; }
+.timeline-fill { position: absolute; left: -1px; top: 0; bottom: 0; width: 1px; background: var(--blood-bright); transform-origin: top; box-shadow: 0 0 8px rgba(184, 40, 43, .6); }
+
+/* Carteles con inclinación */
+.tilt { transform-style: preserve-3d; will-change: transform; }
+.tilt img { box-shadow: 0 18px 30px -18px rgba(0, 0, 0, .9); }
 
 /* Método: tres movimientos */
 .moves { list-style: none; margin: 0 0 1rem; padding: 0; counter-reset: m; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -381,3 +394,20 @@ figcaption { font-size: var(--s1); color: var(--text-soft); margin-top: 0.7rem; 
 .music.on { color: var(--text); }
 .music.on i { background: var(--blood-bright); box-shadow: 0 0 6px var(--blood-bright); }
 @media (max-width: 640px) { .music { left: auto; right: 0.8rem; bottom: 0.8rem; font-size: 0.75rem; padding: 0.35rem 0.7rem; } }
+
+/* ---------- Linterna en la pared ---------- */
+.torch::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle 300px at var(--x, 70%) var(--y, 40%), rgba(255, 228, 190, .09), transparent 70%),
+              radial-gradient(circle 900px at var(--x, 70%) var(--y, 40%), transparent 30%, rgba(0, 0, 0, .55));
+}
+.torch .wall-text { position: relative; z-index: 1; }
+.torch .cue { z-index: 1; }
+.wall-mark { position: absolute; }
+.wall-mark .lit {
+  position: absolute; inset: 0; width: 100%; height: auto; opacity: .85;
+  filter: saturate(1.2) drop-shadow(0 0 30px rgba(184, 40, 43, .35));
+  -webkit-mask-image: radial-gradient(circle 190px at var(--lx, -999px) var(--ly, -999px), #000 30%, transparent 100%);
+  mask-image: radial-gradient(circle 190px at var(--lx, -999px) var(--ly, -999px), #000 30%, transparent 100%);
+}
+.seven .him .name { text-shadow: 0 0 24px rgba(184, 40, 43, .6); }

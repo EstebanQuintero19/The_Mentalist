@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import RedJohnMark from "../../components/RedJohnMark";
 import { seasons } from "../../seasons";
+import { Timeline } from "../../components/Motion";
 
 export function generateStaticParams() {
   return seasons.map((s) => ({ n: String(s.n) }));
@@ -62,7 +63,7 @@ export default async function Temporada({ params }: { params: Promise<{ n: strin
           <p>Episodios que importan. En rojo, cuando Red John está en la sala.</p>
         </aside>
         <div className="body">
-          <ol className="timeline">
+          <Timeline>
             {s.episodesList.map((e) => (
               <li key={e.code} className={e.red ? "red" : undefined}>
                 <span className="code">{e.code}</span>
@@ -72,7 +73,7 @@ export default async function Temporada({ params }: { params: Promise<{ n: strin
                 </div>
               </li>
             ))}
-          </ol>
+          </Timeline>
         </div>
       </section>
 
